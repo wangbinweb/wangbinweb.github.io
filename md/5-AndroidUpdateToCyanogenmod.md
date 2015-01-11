@@ -31,12 +31,12 @@ Odin 线刷软件。程序下载地址在[这里][6]。不一定会用到，但�
 
 4. 现在准备工作已完成，开始刷机。
 
-第一步：手机关机，开机进入线刷模式 
-第二步：用数据线连接电脑，使用Odin软件刷入“适合安卓版本的Recovery版本”，如果这一步成功，则跳过第三步和第四步直接进入第五步 
-第三步：如果第二步不成功，不要慌，那就用Odin软件先刷入“兼容性好的第三方Recovery”，这个第三方Recovery的特点是肯定能刷入自己的手机，所以准备工作要做好。 
-第四步：重新开机进入Recovery卡刷模式，使用 install update from zip file 菜单进入选择“适合安卓版本的Recovery版本”刷入手机。 
-第五步：重新开机，进入新安装的Recovery版本卡刷模式，先安装CM程序文件，再安装Gapps谷歌内核服务框架，最后别忘了双清操作，即 Wipe Data / Wipe Cache .
-第六步：重新开机，这时你应该已经看到了DM的开机画面了。刷机成功。
++ 第一步：手机关机，开机进入线刷模式 
++ 第二步：用数据线连接电脑，使用Odin软件刷入“适合安卓版本的Recovery版本”，如果这一步成功，则跳过第三步和第四步直接进入第五步 
++ 第三步：如果第二步不成功，不要慌，那就用Odin软件先刷入“兼容性好的第三方Recovery”，这个第三方Recovery的特点是肯定能刷入自己的手机，所以准备工作要做好。 
++ 第四步：重新开机进入Recovery卡刷模式，使用 install update from zip file 菜单进入选择“适合安卓版本的Recovery版本”刷入手机。 
++ 第五步：重新开机，进入新安装的Recovery版本卡刷模式，先安装CM程序文件，再安装Gapps谷歌内核服务框架，最后别忘了双清操作，即 Wipe Data / Wipe Cache .
++ 第六步：重新开机，这时你应该已经看到了DM的开机画面了。刷机成功。
 
 [1]:http://www.cyanogenmod.org/ (cyanogenmod)
 [2]:http://www.wandoujia.com/apps/com.keramidas.TitaniumBackup (钛备份)
