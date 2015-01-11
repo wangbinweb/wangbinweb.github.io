@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Wangbinweb.GitHub.io : 王斌的博客网站">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/css.css">
+
+    <title>安卓 android 系统升级到 cyanogenmod ( CM ) 最新版本</title>
+  </head>
+
+  <body>
+    <div id="container">
+
+<h4 id="section">20140510</h4>
+<h2 id="安卓-android-系统升级到-cyanogenmod-cm-最新版本">安卓 android 系统升级到 cyanogenmod ( CM ) 最新版本</h2>
+<p>最近对CyanogenMod很感兴趣，把自己的手机(Samsung N7000 三星NOTE 1)升级到了CM最新版，安卓4.4.2系统，希望本文对喜欢CM的用家有所帮助。</p>
+<p>==========</p>
+<p>介绍：</p>
+<p><a href="http://www.cyanogenmod.org/" title="cyanogenmod">CyanogenMod</a>是一个基于Android系统深度优化、定制、开发的第三方手机操作系统。CM提供了一些原生Android系统或某些手机厂商定制系统中没有的功能，也是第一个使用BFS作任务管理器的手机操作系统。</p>
+<p>升级步骤：</p>
+<ol style="list-style-type: decimal">
+<li>备份系统资料</li>
+</ol>
+<p>这一步其实很简单，因为一般来讲，需要备份的数据很少。推荐使用<a href="http://www.wandoujia.com/apps/com.keramidas.TitaniumBackup" title="钛备份">钛备份</a>，主要备份一些没有同步到云端的数据，如短信，私人日记等，其他大部分应用不需要备份，系统安装后可以再重新下载安装。</p>
+<ol start="2" style="list-style-type: decimal">
+<li>把以下程序下载到手机内存卡里</li>
+</ol>
+<p>CyanogenMod 系统程序。程序下载地址在<a href="http://download.cyanogenmod.org/" title="download cyanogenmod">这里</a>，请按自己的手机品牌型号选择最新版本，版本有nightly、milestone、snapshot、rc、stable，依次越来越稳定，最近据CM博客消息说以后可能每两周只更新M版本，不再放stable版本了。</p>
+<p>Gapps 谷歌内核服务框架。程序下载地址在<a href="http://www.teamandroid.com/gapps/" title="Google Gapps">这里</a>，请按自己安装的CM版本下载对应的Gapps版本，否则将刷机失败。</p>
+<p>适合安卓版本的 Recovery 版本。程序下载地址在<a href="http://goo.im/devs/philz_touch/CWM_Advanced_Edition" title="PhilZ Touch Recovery">这里</a>，请按自己的手机品牌型号点击进入相应链接，尽量选择日期较近的版本，否则将刷机失败。这个文件要在手机内存卡里和电脑里各放一份。</p>
+<ol start="3" style="list-style-type: decimal">
+<li>下载以下程序</li>
+</ol>
+<p>为安全起见，还需要下载一个兼容性好的第三方Recovery，这个请自行搜索寻找，网上有很多，根据自己的手机品牌型号找一个能成功刷入的Recovery即可。</p>
+<p>Odin 线刷软件。程序下载地址在<a href="http://odindownload.com/" title="Download Odin">这里</a>。不一定会用到，但为了安全起见，先下载好线刷软件 Odin 并预先安装到电脑里备用。</p>
+<ol start="4" style="list-style-type: decimal">
+<li>现在准备工作已完成，开始刷机。</li>
+</ol>
+<p>第一步：手机关机，开机进入线刷模式 第二步：用数据线连接电脑，使用Odin软件刷入“适合安卓版本的Recovery版本”，如果这一步成功，则跳过第三步和第四步直接进入第五步 第三步：如果第二步不成功，不要慌，那就用Odin软件先刷入“兼容性好的第三方Recovery”，这个第三方Recovery的特点是肯定能刷入自己的手机，所以准备工作要做好。 第四步：重新开机进入Recovery卡刷模式，使用 install update from zip file 菜单进入选择“适合安卓版本的Recovery版本”刷入手机。 第五步：重新开机，进入新安装的Recovery版本卡刷模式，先安装CM程序文件，再安装Gapps谷歌内核服务框架，最后别忘了双清操作，即 Wipe Data / Wipe Cache . 第六步：重新开机，这时你应该已经看到了DM的开机画面了。刷机成功。</p>
+</div>
+        <nav>
+            <div id="archive"><a href="../index.html">文章索引</a></div>
+        </nav>  
+  </body>
+</html>

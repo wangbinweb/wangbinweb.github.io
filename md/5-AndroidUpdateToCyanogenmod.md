@@ -1,6 +1,5 @@
-20140510
-资源共享
-安卓 android 系统升级到 cyanogenmod ( CM ) 最新版本
+#### 20140510
+## 安卓 android 系统升级到 cyanogenmod ( CM ) 最新版本
 
 最近对CyanogenMod很感兴趣，把自己的手机(Samsung N7000 三星NOTE 1)升级到了CM最新版，安卓4.4.2系统，希望本文对喜欢CM的用家有所帮助。
 
