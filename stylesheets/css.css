@@ -26,7 +26,7 @@ body {
   box-sizing: border-box;
   color:#919191;
   background: #212121;
-  font-size: 16px;
+  font-size: 1em;
   font-family: 'Myriad Pro', Calibri, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -37,7 +37,7 @@ h2 {
 }
 
 #container {
-    width: 700px;
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -61,7 +61,7 @@ nav {
 
 nav #archive {
     margin-top: 29px;
-    width: 700px;
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
 }
