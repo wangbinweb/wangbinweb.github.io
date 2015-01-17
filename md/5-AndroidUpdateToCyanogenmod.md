@@ -43,4 +43,4 @@ Odin 线刷软件。程序下载地址在[这里][6]。不一定会用到，但�
 [3]:http://download.cyanogenmod.org/ (download cyanogenmod)
 [4]:http://www.teamandroid.com/gapps/ (Google Gapps)
 [5]:http://goo.im/devs/philz_touch/CWM_Advanced_Edition (PhilZ Touch Recovery)
-[6]:http://odindownload.com/ (Download Odin)
+[6]:http://odin.website (Download Odin)
