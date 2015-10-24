@@ -82,5 +82,31 @@ func mdtohtml() {
     reg5 := regexp.MustCompile(`([\r]?\n|<p>)[ ]*##[ ]+([^\r\n]+?)([\r]?\n|</p>|<p>)`)
     rep5 := "$1<h2>$2</h2>$3"
     zw = reg5.ReplaceAllString(zw,rep5)
+    reg6 := regexp.MustCompile(`([\r]?\n|<p>)[ ]*###[ ]+([^\r\n]+?)([\r]?\n|</p>|<p>)`)
+    rep6 := "$1<h3>$2</h3>$3"
+    zw = reg6.ReplaceAllString(zw,rep6)
+    reg7 := regexp.MustCompile(`([\r]?\n|<p>)[ ]*####[ ]+([^\r\n]+?)([\r]?\n|</p>|<p>)`)
+    rep7 := "$1<h4>$2</h4>$3"
+    zw = reg7.ReplaceAllString(zw,rep7)
+    reg8 := regexp.MustCompile(`([\r]?\n|<p>)[ ]*#####[ ]+([^\r\n]+?)([\r]?\n|</p>|<p>)`)
+    rep8 := "$1<h5>$2</h5>$3"
+    zw = reg8.ReplaceAllString(zw,rep8)
+    reg9 := regexp.MustCompile(`([\r]?\n|<p>)[ ]*######[ ]+([^\r\n]+?)([\r]?\n|</p>|<p>)`)
+    rep9 := "$1<h6>$2</h6>$3"
+    zw = reg9.ReplaceAllString(zw,rep9)
+    /* 项目符号格式化 */
+    reg10 := regexp.MustCompile(`(<p>|\r?\n)[-+*][ ]+`)
+    rep10 := "</li><li>$1"
+    zw = reg10.ReplaceAllString(zw,rep10)
+    zw = strings.Replace(zw,"</li>","<ul>",1)
+    reg11 := regexp.MustCompile(`(<li>[^</>]+)</p>`)
+    rep11 := "$1</li></ul>"
+    zw = reg11.ReplaceAllString(zw,rep11)
+    reg12 := regexp.MustCompile(`<li><p>([^</>]+</li>)`)
+    rep12 := "<li>$1"
+    zw = reg12.ReplaceAllString(zw,rep12)
+    reg13 := regexp.MustCompile(`(<li>[^</>]+)</p></li>`)
+    rep13 := "$1</li>"
+    zw = reg13.ReplaceAllString(zw,rep13)
     fmt.Printf("正文内容是：%s\n",zw)
 }
