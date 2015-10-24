@@ -98,15 +98,18 @@ func mdtohtml() {
     reg10 := regexp.MustCompile(`(<p>|\r?\n)[-+*][ ]+`)
     rep10 := "</li><li>$1"
     zw = reg10.ReplaceAllString(zw,rep10)
-    zw = strings.Replace(zw,"</li>","<ul>",1)
-    reg11 := regexp.MustCompile(`(<li>[^</>]+)</p>`)
-    rep11 := "$1</li></ul>"
+    reg11 := regexp.MustCompile(`(<li>[\s\S]+?</p>)(<p>[ ]{0,3}[^\s]+[\s\S])`)
+    rep11 := "$1</li></ul>$2"
     zw = reg11.ReplaceAllString(zw,rep11)
-    reg12 := regexp.MustCompile(`<li><p>([^</>]+</li>)`)
-    rep12 := "<li>$1"
+    reg12 := regexp.MustCompile(`</li>([\s\S]+?</ul>)`)
+    rep12 := "<ul>$1"
     zw = reg12.ReplaceAllString(zw,rep12)
-    reg13 := regexp.MustCompile(`(<li>[^</>]+)</p></li>`)
+    reg13 := regexp.MustCompile(`(<li>[\s]*[^<]+[\s\S]+?)(</p>)?</li>`)
     rep13 := "$1</li>"
     zw = reg13.ReplaceAllString(zw,rep13)
+    reg14 := regexp.MustCompile(`<li>(<p>)?([\s\S]+?[^</>]</li>)`)
+    rep14 := "<li>$2"
+    zw = reg14.ReplaceAllString(zw,rep14)
+    /* 编号格式化 */
     fmt.Printf("正文内容是：%s\n",zw)
 }
