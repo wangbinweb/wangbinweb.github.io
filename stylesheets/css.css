@@ -89,7 +89,7 @@ blockquote {
 code {
     display: block;
     font-family: Century SchoolBook,Palladio URW;
-    font-size: 1.1em;
+    font-size: 1em;
     border-left: 2px dotted  #845e70;
     padding: 10px;
 }
