@@ -1,4 +1,4 @@
-﻿24-photographer-story
+24-photographer-story
 ==========
 #### 20170429
 ## 摄影师的故事读书笔记-关于故事的拍摄方法
