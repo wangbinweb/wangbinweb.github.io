@@ -5,13 +5,12 @@ import (
     "strings"
     "regexp"
     "strconv"
-    "io/ioutil"
 )
 
-var FileName string=""
-var Title string=""
-var Time string=""
-var Content string=""
+var filename string=""
+var title string=""
+var time string=""
+var zw string=""
 var head string=""
 var foot string=""
 var wri string=""
@@ -29,13 +28,20 @@ func main() {
 }
 
 func cpmd() {
-    alltext := ""
-    buf, err := ioutil.ReadFile("post.md")
+    fin, err := os.Open("post.md")
+    defer fin.Close()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "File Error: %s\n", err)
-        // panic(err.Error())
-        }
-    alltext = string(buf)
+        fmt.Println("post.md",err)
+        return
+    }
+    buf := make([]byte,1024)
+    alltext := ""
+    for {
+        n, _ := fin.Read(buf)
+        if n == 0 { break }
+        alltext = alltext + string(buf[:n])
+    }
+    fin.Close()
     wFile := "./md/" + mdfilename
     fout,err := os.Create(wFile)
     defer fout.Close()
@@ -98,36 +104,33 @@ func writeindexfile() {
 
 
 func readtext() {
-    buf, err := ioutil.ReadFile("post.md")
+    textFile := "post.md"
+    fin,err := os.Open(textFile)
+    defer fin.Close()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "File Error: %s\n", err)
-        // panic(err.Error())
+        fmt.Println(textFile,err)
+        return
     }
+    buf := make([]byte,1024)
     alltext := ""
-    alltext = string(buf)
-    reg1 := regexp.MustCompile(`\[Title\]\n(.+)\n\[/Title\]`)
-    s1 := reg1.FindString(alltext)
-    s2 := "$1"
-    Title = reg1.ReplaceAllString(s1,s2)
-    fmt.Printf("标题是： %s\n",Title)
-    reg2 := regexp.MustCompile(`\[FileName\]\n(.+)\n\[/FileName\]`)
-    s3 := reg2.FindString(alltext)
-    s4 := "$1"
-    FileName = reg2.ReplaceAllString(s3,s4)
-    fmt.Printf("文件名是： %s\n",FileName)
-    mdfilename = FileName + ".md"
-    reg3 := regexp.MustCompile(`\[Time\]\n(.+)\n\[/Time\]`)
-    s5 := reg3.FindString(alltext)
-    s6 := "$1"
-    Time = reg3.ReplaceAllString(s5,s6)
-    fmt.Printf("文章发表时间是： %s\n",Time)
-    indexfile = Time[0:4] + "index.htm"
+    for {
+        n, _ := fin.Read(buf)
+        if 0 == n { break }
+        alltext = alltext + string(buf[:n])
+    }
+    sp := strings.Split(alltext,"\n==========\n")
+    filename = sp[0] + ".htm"
+    mdfilename = sp[0] + ".md"
+    zw = sp[1]
+    sp2 := strings.Split(zw,"\n")
+    time = strings.Replace(sp2[0],"#### ","",1)
+    indexfile = time[0:4] + "index.htm"
     fmt.Printf("indexfile is %s\n",indexfile)
-    reg4 := regexp.MustCompile(`\[Content\]\n(.+)\n\[/Content\]`)
-    s7 := reg4.FindString(alltext)
-    s8 := "$1"
-    Content = reg4.ReplaceAllString(s7,s8)
-    fmt.Printf("文章内容是： %s\n",Content)
+    sp3 := strings.Split(zw,"\n")
+    title = strings.Replace(sp3[1],"## ","",1)
+    fmt.Printf("文件名是： %s\n",filename)
+    fmt.Printf("时间是： %s\n",time)
+    fmt.Printf("标题是： %s\n",title)
 }
 
 func headandfooter() {
