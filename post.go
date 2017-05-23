@@ -109,7 +109,7 @@ func readtext() {
     fmt.Printf("文章发表时间是： %s\n",Time)
     indexfile = Time[0:4] + "index.htm"
     fmt.Printf("indexfile is %s\n",indexfile)
-    reg4 := regexp.MustCompile(`\[Content\]\n(.+)\n\[/Content\]`)
+    reg4 := regexp.MustCompile(`\[Content\]\n([\s\S]+)\n\[/Content\]`)
     s7 := reg4.FindString(alltext)
     s8 := "$1"
     Content = reg4.ReplaceAllString(s7,s8)
@@ -130,7 +130,7 @@ func headandfooter() {
 
 
 func writefile() {
-    wFile := "./htm/" + FileName
+    wFile := "./htm/" + FileName + ".htm"
     fout,err := os.Create(wFile)
     defer fout.Close()
     if err != nil {
