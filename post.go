@@ -125,6 +125,7 @@ func headandfooter() {
     head = head + "<meta name=\"description\" content=\"Wangbinweb.GitHub.io : 王斌的博客网站\">\n"
     head = head + "<link rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"../stylesheets/css.css\">\n"
     head = head + "<title>" + Title + "</title>\n" + "</head>\n" + "<body>\n" + "<div id=\"container\">\n"
+    head = head + "<h4>" + Time + "</h4>\n" + "<h2>" + Title + "</h2>\n"
     foot = "</div>\n" + "<nav>\n" + "<div id=\"archive\"><a href=\"../index.html\">文章索引</a></div>\n" + "</nav>\n" + "</body>\n" + "</html>"
 }
 
