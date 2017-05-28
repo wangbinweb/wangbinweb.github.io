@@ -23,25 +23,6 @@ func main() {
     writefile()
     writeindex()
     writeindexfile()
-    cpmd()
-}
-
-func cpmd() {
-    alltext := ""
-    buf, err := ioutil.ReadFile("post.md")
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "File Error: %s\n", err)
-        // panic(err.Error())
-        }
-    alltext = string(buf)
-    wFile := "./md/" + mdfilename
-    fout,err := os.Create(wFile)
-    defer fout.Close()
-    if err != nil {
-        fmt.Println(wFile,err)
-        return
-    }
-    fout.WriteString(alltext)
 }
 
 func writeindex() {
