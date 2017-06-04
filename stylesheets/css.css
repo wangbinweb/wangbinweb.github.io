@@ -27,19 +27,21 @@ body {
   color:#919191;
   background: #212121;
   font-size: 1.1em;
-  font-family: 'Myriad Pro', Calibri, Helvetica, Arial, sans-serif;
+  font-family: Inconsolata, 'Myriad Pro', Calibri, Helvetica, Arial, sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
 h2, h4 {
     color: #eae5e3;
+    font-family: Inconsolata, 'Myriad Pro', Calibri, Helvetica, Arial, sans-serif;
 }
 
 #container {
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
+    font-family: Inconsolata, 'Myriad Pro', Calibri, Helvetica, Arial, serif;
 }
 
 a:link, a:visited, a:active {
