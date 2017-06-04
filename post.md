@@ -1,7 +1,7 @@
 这是一个模板文件，请按格式填写。
 
 [FileName]
-To-Be-Human.htm
+27-To-Be-Human
 [/FileName]
 
 [Time]
