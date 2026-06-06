@@ -1,55 +1,80 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="description" content="Wangbinweb.GitHub.io : 王斌的博客网站">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/site.css">
+  <title>安卓 android 系统升级到 cyanogenmod ( CM ) 最新版本</title>
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-title" href="../index.html">王斌的网站</a>
+    <p>随手记录一些乱七八糟的东西。</p>
+  </header>
 
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Wangbinweb.GitHub.io : 王斌的博客网站">
+  <main class="page-shell">
+    <article class="content">
+      <time datetime="20140510">2014.05.10</time>
+      <h1>安卓 android 系统升级到 cyanogenmod ( CM ) 最新版本</h1>
+      <p>最近对CyanogenMod很感兴趣，把自己的手机(Samsung N7000 三星NOTE 1)升级到了CM最新版，安卓4.4.2系统，希望本文对喜欢CM的用家有所帮助。</p>
+      <p>==========</p>
+      <p>介绍：</p>
+      <p>[CyanogenMod][1]是一个基于Android系统深度优化、定制、开发的第三方手机操作系统。CM提供了一些原生Android系统或某些手机厂商定制系统中没有的功能，也是第一个使用BFS作任务管理器的手机操作系统。</p>
+      <p>升级步骤：</p>
+      <p>1. 备份系统资料</p>
+      <p>这一步其实很简单，因为一般来讲，需要备份的数据很少。推荐使用[钛备份][2]，主要备份一些没有同步到云端的数据，如短信，私人日记等，其他大部分应用不需要备份，系统安装后可以再重新下载安装。</p>
+      <p>2. 把以下程序下载到手机内存卡里</p>
+      <p>CyanogenMod 系统程序。程序下载地址在[这里][3]，请按自己的手机品牌型号选择最新版本，版本有nightly、milestone、snapshot、rc、stable，依次越来越稳定，最近据CM博客消息说以后可能每两周只更新M版本，不再放stable版本了。</p>
+      <p>Gapps 谷歌内核服务框架。程序下载地址在[这里][4]，请按自己安装的CM版本下载对应的Gapps版本，否则将刷机失败。</p>
+      <p>适合安卓版本的 Recovery 版本。程序下载地址在[这里][5]，请按自己的手机品牌型号点击进入相应链接，尽量选择日期较近的版本，否则将刷机失败。这个文件要在手机内存卡里和电脑里各放一份。</p>
+      <p>3. 下载以下程序</p>
+      <p>为安全起见，还需要下载一个兼容性好的第三方Recovery，这个请自行搜索寻找，网上有很多，根据自己的手机品牌型号找一个能成功刷入的Recovery即可。</p>
+      <p>Odin 线刷软件。程序下载地址在[这里][6]。不一定会用到，但为了安全起见，先下载好线刷软件 Odin 并预先安装到电脑里备用。</p>
+      <p>4. 现在准备工作已完成，开始刷机。</p>
+      <p>+ 第一步：手机关机，开机进入线刷模式 + 第二步：用数据线连接电脑，使用Odin软件刷入“适合安卓版本的Recovery版本”，如果这一步成功，则跳过第三步和第四步直接进入第五步 + 第三步：如果第二步不成功，不要慌，那就用Odin软件先刷入“兼容性好的第三方Recovery”，这个第三方Recovery的特点是肯定能刷入自己的手机，所以准备工作要做好。 + 第四步：重新开机进入Recovery卡刷模式，使用 install update from zip file 菜单进入选择“适合安卓版本的Recovery版本”刷入手机。 + 第五步：重新开机，进入新安装的Recovery版本卡刷模式，先安装CM程序文件，再安装Gapps谷歌内核服务框架，最后别忘了双清操作，即 Wipe Data / Wipe Cache . + 第六步：重新开机，这时你应该已经看到了CM的开机画面了。刷机成功。</p>
+      <p>[1]:http://www.cyanogenmod.org/ (cyanogenmod) [2]:http://www.wandoujia.com/apps/com.keramidas.TitaniumBackup (钛备份) [3]:http://download.cyanogenmod.org/ (download cyanogenmod) [4]:http://www.teamandroid.com/gapps/ (Google Gapps) [5]:http://goo.im/devs/philz_touch/CWM_Advanced_Edition (PhilZ Touch Recovery) [6]:http://odin.website (Download Odin)</p>
+      <a class="back-link" href="../index.html">回到文章索引</a>
+    </article>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/css.css">
+    <aside class="sidebar" aria-label="文章导航">
+      <section class="side-section">
+        <h2>近日</h2>
+        <ol class="post-list">
+          <li><a href="../htm/29-the-seven-habits.htm"><time>20171118</time><span>高效能人士的七个习惯读后感</span></a></li>
+          <li><a href="../htm/28-shape-of-my-heart.htm"><time>20170819</time><span>这个杀手不太冷片尾曲-Shape Of My Heart</span></a></li>
+          <li><a href="../htm/27-To-Be-Human.htm"><time>20170604</time><span>神奇女侠主题曲 To Be Human (Sia Feat. Labrinth)</span></a></li>
+          <li><a href="../htm/26-golang-code.htm"><time>20170523</time><span>Go 网站提交代码更新</span></a></li>
+          <li><a href="../htm/25-life2017.htm"><time>20170520</time><span>电影-异星觉醒及其它</span></a></li>
+          <li><a href="../htm/24-photographer-story.htm"><time>20170429</time><span>摄影师的故事读书笔记-关于故事的拍摄方法</span></a></li>
+          <li><a href="../htm/23-dongtinglaojie.htm"><time>20170226</time><span>东亭老街2017年2月</span></a></li>
+          <li><a href="../htm/22-deep-breath.htm"><time>20161223</time><span>比海更深片尾曲-深呼吸</span></a></li>
+          <li><a href="../htm/21-deyunshe-master.htm"><time>20161002</time><span>由德云社的师徒说起</span></a></li>
+          <li><a href="../htm/20-Collect-emotions.htm"><time>20160918</time><span>把情感收藏起来</span></a></li>
+          <li><a href="../htm/19-in-the-rain.htm"><time>20160917</time><span>在雨中</span></a></li>
+          <li><a href="../htm/18-archlinux-install-wireless-network-card.htm"><time>20160803</time><span>archlinux 系统安装无线网卡</span></a></li>
+        </ol>
+      </section>
 
-    <title>安卓 android 系统升级到 cyanogenmod ( CM ) 最新版本</title>
-  </head>
+      <section class="side-section">
+        <h2>归档</h2>
+        <nav class="archive-list" aria-label="年份归档">
+          <a href="../2017index.htm">2017</a>
+          <a href="../2016index.htm">2016</a>
+          <a href="../2015index.htm">2015</a>
+          <a href="../2014index.htm">2014 与以前</a>
+        </nav>
+      </section>
+    </aside>
+  </main>
 
-  <body>
-    <div id="container">
-<h4 id="section">20140510</h4>
-<h2 id="安卓-android-系统升级到-cyanogenmod-cm-最新版本">安卓 android 系统升级到 cyanogenmod ( CM ) 最新版本</h2>
-<p>最近对CyanogenMod很感兴趣，把自己的手机(Samsung N7000 三星NOTE 1)升级到了CM最新版，安卓4.4.2系统，希望本文对喜欢CM的用家有所帮助。</p>
-<p>==========</p>
-<p>介绍：</p>
-<p><a href="http://www.cyanogenmod.org/" title="cyanogenmod">CyanogenMod</a>是一个基于Android系统深度优化、定制、开发的第三方手机操作系统。CM提供了一些原生Android系统或某些手机厂商定制系统中没有的功能，也是第一个使用BFS作任务管理器的手机操作系统。</p>
-<p>升级步骤：</p>
-<ol style="list-style-type: decimal">
-<li>备份系统资料</li>
-</ol>
-<p>这一步其实很简单，因为一般来讲，需要备份的数据很少。推荐使用<a href="http://www.wandoujia.com/apps/com.keramidas.TitaniumBackup" title="钛备份">钛备份</a>，主要备份一些没有同步到云端的数据，如短信，私人日记等，其他大部分应用不需要备份，系统安装后可以再重新下载安装。</p>
-<ol start="2" style="list-style-type: decimal">
-<li>把以下程序下载到手机内存卡里</li>
-</ol>
-<p>CyanogenMod 系统程序。程序下载地址在<a href="http://download.cyanogenmod.org/" title="download cyanogenmod">这里</a>，请按自己的手机品牌型号选择最新版本，版本有nightly、milestone、snapshot、rc、stable，依次越来越稳定，最近据CM博客消息说以后可能每两周只更新M版本，不再放stable版本了。</p>
-<p>Gapps 谷歌内核服务框架。程序下载地址在<a href="http://www.teamandroid.com/gapps/" title="Google Gapps">这里</a>，请按自己安装的CM版本下载对应的Gapps版本，否则将刷机失败。</p>
-<p>适合安卓版本的 Recovery 版本。程序下载地址在<a href="http://goo.im/devs/philz_touch/CWM_Advanced_Edition" title="PhilZ Touch Recovery">这里</a>，请按自己的手机品牌型号点击进入相应链接，尽量选择日期较近的版本，否则将刷机失败。这个文件要在手机内存卡里和电脑里各放一份。</p>
-<ol start="3" style="list-style-type: decimal">
-<li>下载以下程序</li>
-</ol>
-<p>为安全起见，还需要下载一个兼容性好的第三方Recovery，这个请自行搜索寻找，网上有很多，根据自己的手机品牌型号找一个能成功刷入的Recovery即可。</p>
-<p>Odin 线刷软件。程序下载地址在<a href="http://odin.website" title="Download Odin">这里</a>。不一定会用到，但为了安全起见，先下载好线刷软件 Odin 并预先安装到电脑里备用。</p>
-<ol start="4" style="list-style-type: decimal">
-<li>现在准备工作已完成，开始刷机。</li>
-</ol>
-<ul>
-<li>第一步：手机关机，开机进入线刷模式</li>
-<li>第二步：用数据线连接电脑，使用Odin软件刷入“适合安卓版本的Recovery版本”，如果这一步成功，则跳过第三步和第四步直接进入第五步</li>
-<li>第三步：如果第二步不成功，不要慌，那就用Odin软件先刷入“兼容性好的第三方Recovery”，这个第三方Recovery的特点是肯定能刷入自己的手机，所以准备工作要做好。</li>
-<li>第四步：重新开机进入Recovery卡刷模式，使用 install update from zip file 菜单进入选择“适合安卓版本的Recovery版本”刷入手机。</li>
-<li>第五步：重新开机，进入新安装的Recovery版本卡刷模式，先安装CM程序文件，再安装Gapps谷歌内核服务框架，最后别忘了双清操作，即 Wipe Data / Wipe Cache .</li>
-<li>第六步：重新开机，这时你应该已经看到了CM的开机画面了。刷机成功。</li>
-</ul>
-</div>
-        <nav>
-            <div id="archive"><a href="../index.html">文章索引</a></div>
-        </nav>  
-  </body>
+  <footer class="site-footer">
+    <a href="http://heimaphoto.com" target="_blank">黑马摄影</a>
+    <a href="https://github.com/windfromdesert/blog">My Blog</a>
+    <a href="http://shafeng-cn.blog.163.com/" target="_blank">沙风</a>
+    <a href="http://wbwuxi.blog.163.com/" target="_blank">DAY AFTER DAY</a>
+    <a href="mailto:wbwuxi@gmail.com">邮件</a>
+  </footer>
+</body>
 </html>
-
