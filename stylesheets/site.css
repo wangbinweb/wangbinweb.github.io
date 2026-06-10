@@ -85,8 +85,23 @@ blockquote {
   padding: 58px 0 64px;
 }
 
+.page-shell.single {
+  display: block;
+  max-width: 820px;
+}
+
 .content {
   max-width: 700px;
+}
+
+.content.single {
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+.content.archive {
+  max-width: 820px;
+  margin-inline: auto;
 }
 
 .eyebrow,
@@ -131,6 +146,17 @@ blockquote {
   color: var(--accent);
   border-bottom: 1px solid currentColor;
   font-size: 15px;
+}
+
+.post-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 28px;
+  margin-top: 16px;
+}
+
+.post-actions .back-link {
+  margin-top: 0;
 }
 
 .archive-heading {
@@ -243,6 +269,10 @@ blockquote {
     grid-template-columns: 1fr;
     gap: 44px;
     padding-top: 38px;
+  }
+
+  .page-shell.single {
+    max-width: min(100% - 28px, 680px);
   }
 
   .content p {

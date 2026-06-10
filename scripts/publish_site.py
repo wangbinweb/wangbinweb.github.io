@@ -125,8 +125,23 @@ blockquote {
   padding: 58px 0 64px;
 }
 
+.page-shell.single {
+  display: block;
+  max-width: 820px;
+}
+
 .content {
   max-width: 700px;
+}
+
+.content.single {
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+.content.archive {
+  max-width: 820px;
+  margin-inline: auto;
 }
 
 .eyebrow,
@@ -171,6 +186,17 @@ blockquote {
   color: var(--accent);
   border-bottom: 1px solid currentColor;
   font-size: 15px;
+}
+
+.post-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 28px;
+  margin-top: 16px;
+}
+
+.post-actions .back-link {
+  margin-top: 0;
 }
 
 .archive-heading {
@@ -283,6 +309,10 @@ blockquote {
     grid-template-columns: 1fr;
     gap: 44px;
     padding-top: 38px;
+  }
+
+  .page-shell.single {
+    max-width: min(100% - 28px, 680px);
   }
 
   .content p {
@@ -556,9 +586,23 @@ def relative_url(url: str, current_slug: Optional[str]) -> str:
     return url
 
 
-def page(title: str, body: str, posts: list[Post], current_slug: Optional[str] = None) -> str:
+def footer() -> str:
+    return """  <footer class="site-footer">
+    <a href="http://heimaphoto.com" target="_blank">黑马摄影</a>
+  </footer>"""
+
+
+def page(
+    title: str,
+    body: str,
+    posts: list[Post],
+    current_slug: Optional[str] = None,
+    include_sidebar: bool = True,
+    shell_class: str = "page-shell",
+) -> str:
     home_url = "../index.html" if current_slug else "index.html"
     css_url = "../stylesheets/site.css" if current_slug else "stylesheets/site.css"
+    sidebar_html = f"\n{sidebar(posts, current_slug)}" if include_sidebar else ""
     return f"""<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -575,18 +619,12 @@ def page(title: str, body: str, posts: list[Post], current_slug: Optional[str] =
     <p>{SITE_SUBTITLE}</p>
   </header>
 
-  <main class="page-shell">
+  <main class="{shell_class}">
 {body}
-{sidebar(posts, current_slug)}
+{sidebar_html}
   </main>
 
-  <footer class="site-footer">
-    <a href="http://heimaphoto.com" target="_blank">黑马摄影</a>
-    <a href="https://github.com/windfromdesert/blog">My Blog</a>
-    <a href="http://shafeng-cn.blog.163.com/" target="_blank">沙风</a>
-    <a href="http://wbwuxi.blog.163.com/" target="_blank">DAY AFTER DAY</a>
-    <a href="mailto:wbwuxi@gmail.com">邮件</a>
-  </footer>
+{footer()}
 </body>
 </html>
 """
@@ -615,14 +653,17 @@ def render_index(posts: list[Post]) -> str:
 
 
 def render_post(post: Post, posts: list[Post]) -> str:
-    body = f"""    <article class="content">
+    body = f"""    <article class="content single">
       <time datetime="{post.date}">{post.display_date}</time>
       <h1>{html.escape(post.title)}</h1>
 {indent(post.content_html, 6)}
-      <a class="back-link" href="../index.html">回到文章索引</a>
+      <nav class="post-actions" aria-label="文章导航">
+        <a class="back-link" href="../index.html">回主页</a>
+        <a class="back-link" href="https://www.douban.com/group/514220/" target="_blank">留言板</a>
+      </nav>
     </article>
 """
-    return page(post.title, body, posts, current_slug=post.slug)
+    return page(post.title, body, posts, current_slug=post.slug, include_sidebar=False, shell_class="page-shell single")
 
 
 def render_archive(year: str, year_posts: list[Post], posts: list[Post]) -> str:
@@ -631,7 +672,7 @@ def render_archive(year: str, year_posts: list[Post], posts: list[Post]) -> str:
         f'        <li><a href="{post.url}"><time>{post.date}</time><span>{html.escape(post.title)}</span></a></li>'
         for post in year_posts
     )
-    body = f"""    <section class="content">
+    body = f"""    <section class="content archive">
       <h1 class="archive-heading">{label}</h1>
       <ol class="archive-posts">
 {items}
@@ -639,7 +680,7 @@ def render_archive(year: str, year_posts: list[Post], posts: list[Post]) -> str:
       <a class="back-link" href="index.html">回到首页</a>
     </section>
 """
-    return page(f"{label} - {SITE_TITLE}", body, posts)
+    return page(f"{label} - {SITE_TITLE}", body, posts, include_sidebar=False, shell_class="page-shell single")
 
 
 def indent(text: str, spaces: int) -> str:
